@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DreamJobs India</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🇮🇳 DreamJobs India</h1>
+    <div class="top-nav">
+      <a href="post-job.html">Post Job</a>
+      <a href="login.html" id="authLink">Login</a>
+    </div>
+
+    <div class="filters">
+      <input type="text" id="searchInput" placeholder="🔍 Search job titles..." onkeyup="filterJobs()">
+      <select id="typeFilter" onchange="filterJobs()">
+        <option value="">All Types</option>
+        <option value="Full-Time">Full-Time</option>
+        <option value="Remote">Remote</option>
+        <option value="Internship">Internship</option>
+      </select>
+      <select id="locationFilter" onchange="filterJobs()">
+        <option value="">All Cities</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="Hyderabad">Hyderabad</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Kolkata">Kolkata</option>
+        <option value="Pune">Pune</option>
+        <option value="Remote">Remote</option>
+      </select>
+    </div>
+  </header>
+
+  <main id="jobList"></main>
+
+  <footer>
+    <p>© 2025 DreamJobs India</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

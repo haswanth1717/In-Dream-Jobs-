@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Post Job - DreamJobs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Post a New Job</h2>
+    <input type="text" id="title" placeholder="Job Title">
+    <input type="text" id="company" placeholder="Company Name">
+    <select id="location">
+      <option value="">Select City</option>
+      <option value="Delhi">Delhi</option>
+      <option value="Mumbai">Mumbai</option>
+      <option value="Bangalore">Bangalore</option>
+      <option value="Hyderabad">Hyderabad</option>
+      <option value="Chennai">Chennai</option>
+      <option value="Kolkata">Kolkata</option>
+      <option value="Pune">Pune</option>
+      <option value="Remote">Remote</option>
+    </select>
+    <select id="type">
+      <option value="Full-Time">Full-Time</option>
+      <option value="Remote">Remote</option>
+      <option value="Internship">Internship</option>
+    </select>
+    <button onclick="postJob()">Post Job</button>
+  </div>
+
+  <script>
+    if (!localStorage.getItem('loggedInUser')) {
+      alert("Please login first!");
+      window.location.href = "login.html";
+    }
+
+    function postJob() {
+      const title = document.getElementById('title').value;
+      const company = document.getElementById('company').value;
+      const location = document.getElementById('location').value;
+      const type = document.getElementById('type').value;
+
+      if (title && company && location && type) {
+        const job = { title, company, location, type };
+        const jobs = JSON.parse(localStorage.getItem('jobs') || '[]');
+        jobs.push(job);
+        localStorage.setItem('jobs', JSON.stringify(jobs));
+        alert('Job posted!');
+        window.location.href = 'index.html';
+      } else {
+        alert("Please fill in all fields.");
+      }
+    }
+  </script>
+</body>
+</html>
